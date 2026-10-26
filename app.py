@@ -3,8 +3,7 @@ import unicodedata
 import re
 import pandas as pd
 from bs4 import BeautifulSoup
-from playwright.sync_api 
-import sync_playwright
+from playwright.sync_api import sync_playwright, Page, Browser
 import streamlit as st
 
 # ==========================================
@@ -2007,7 +2006,7 @@ def main():
                                             continue
 
                                         # インターバル条件の判定
-                                        if interval_option == "短い(0min～)" and interval < 0.5:
+                                        if interval_option == "短い(5min～)" and interval < 5:
                                             continue
                                         elif interval_option == "少し短い(15min～)" and interval < 15:
                                             continue
