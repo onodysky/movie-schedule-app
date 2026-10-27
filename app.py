@@ -1,3 +1,4 @@
+import streamlit as st
 import os
 # アプリ起動時にPlaywrightのChromiumをインストール（クラウド環境対策）
 @st.cache_resource
@@ -17,7 +18,6 @@ import re
 import pandas as pd
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright, Page, Browser
-import streamlit as st
 
 # ==========================================
 # 1. ページ設定とCSSカスタマイズ
