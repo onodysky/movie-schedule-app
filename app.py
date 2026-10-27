@@ -275,7 +275,7 @@ def fetch_toho_schedule(
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,  # 運用時は True に変更可能
-                channel="chrome",
+                #channel="chrome",
                 args=["--ignore-certificate-errors"],
             )
 
@@ -405,7 +405,7 @@ def fetch_109_schedule(
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,
-                channel="chrome",
+                #channel="chrome",
                 args=["--ignore-certificate-errors"],
             )
             context = browser.new_context(
@@ -532,7 +532,7 @@ def fetch_kinezo_schedule(
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,
-                channel="chrome",
+                #channel="chrome",
                 args=["--ignore-certificate-errors"],
             )
             context = browser.new_context(
@@ -635,7 +635,7 @@ def fetch_uc_schedule(
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,
-                channel="chrome",
+                #channel="chrome",
                 args=["--ignore-certificate-errors"],
             )
             context = browser.new_context(
@@ -713,7 +713,7 @@ def fetch_cs_schedule(
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,
-                channel="chrome",
+                #channel="chrome",
                 args=["--ignore-certificate-errors"],
             )
             context = browser.new_context(
@@ -814,7 +814,7 @@ def fetch_aeon_schedule(
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,
-                channel="chrome",
+                #channel="chrome",
                 args=["--ignore-certificate-errors"],
             )
             context = browser.new_context(
@@ -903,7 +903,7 @@ def fetch_humax_schedule(
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,  # 画面非表示（処理速度向上）
-                channel="chrome",
+                #channel="chrome",
                 args=["--ignore-certificate-errors"],
             )
 
@@ -1022,7 +1022,7 @@ def fetch_ttcg_schedule(
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,  # 画面非表示
-                channel="chrome",
+                #channel="chrome",
                 args=["--ignore-certificate-errors"],
             )
 
@@ -1157,7 +1157,7 @@ def fetch_cinemacity_schedule(
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,  # 運用向け・画面非表示
-                channel="chrome",
+                #channel="chrome",
                 args=["--ignore-certificate-errors"],
             )
 
@@ -1277,7 +1277,7 @@ def fetch_korona_schedule(
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,  # 運用向け・画面非表示
-                channel="chrome",
+                #channel="chrome",
                 args=["--ignore-certificate-errors"],
             )
 
