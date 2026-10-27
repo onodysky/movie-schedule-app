@@ -1,4 +1,17 @@
+import os
+# アプリ起動時にPlaywrightのChromiumをインストール（クラウド環境対策）
+@st.cache_resource
+def install_playwright_browser():
+    try:
+        os.system("playwright install chromium")
+    except Exception as e:
+        print(f"Browser install failed: {e}")
+
+# 起動時に実行
+install_playwright_browser()
+
 import datetime
+from zoneinfo import ZoneInfo
 import unicodedata
 import re
 import pandas as pd
@@ -140,7 +153,7 @@ def get_all_theater_names():
 def fetch_smt_schedule(
     site_code: str, theater_name: str, date_str: str
 ) -> list[dict]:
-    url = f"https://www.smt-cinema.com/site/{site_code}/"
+    url = f"https://www.smt-cinema.com/site/{site_code}/index.html"
     schedules = []
 
     try:
@@ -158,8 +171,15 @@ def fetch_smt_schedule(
 
             try:
                 page.goto(url, wait_until="domcontentloaded", timeout=15000)
-            except Exception:
-                pass
+            # except Exception:
+            #    pass
+            
+            #ここからデバッグ
+            except Exception as e:
+            # エラーの詳細をそのまま画面に出力
+                st.error(f"Playwrightエラー ({theater_name}): {str(e)}")
+                return []
+            #ここまでデバッグ
 
             page.wait_for_timeout(2000)
 
@@ -1520,7 +1540,8 @@ def main():
     st.subheader("📅 【ステップ1】 鑑賞日と劇場の選択")
 
     # メイン画面で日付を選択
-    today = datetime.date.today()
+    jst = ZoneInfo("Asia/Tokyo")
+    today = datetime.datetime.now(jst).date()
     target_date = st.date_input(
         "鑑賞したい日付を選択してください",
         value=today,
