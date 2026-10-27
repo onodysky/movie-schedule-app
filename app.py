@@ -171,16 +171,9 @@ def fetch_smt_schedule(
 
             try:
                 page.goto(url, wait_until="domcontentloaded", timeout=15000)
-            # except Exception:
-            #    pass
+            except Exception:
+                pass
             
-            #ここからデバッグ
-            except Exception as e:
-            # エラーの詳細をそのまま画面に出力
-                st.error(f"Playwrightエラー ({theater_name}): {str(e)}")
-                return []
-            #ここまでデバッグ
-
             page.wait_for_timeout(2000)
 
             today_str = datetime.date.today().strftime("%Y%m%d")
@@ -257,7 +250,12 @@ def fetch_smt_schedule(
                         }
                     )
 
-    except Exception:
+#    except Exception:
+#        return []
+
+    except Exception as e:
+    # エラーの詳細をそのまま画面に出力
+        st.error(f"Playwrightエラー ({theater_name}): {str(e)}")
         return []
 
     return schedules
