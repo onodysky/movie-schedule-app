@@ -1397,7 +1397,11 @@ def fetch_korona_schedule(
 
         schedules = unique_schedules
 
-    except Exception:
+    #except Exception:
+    #    return []
+    except Exception as e:
+    # エラーの詳細をそのまま画面に出力
+        st.error(f"Playwrightエラー ({theater_name}): {str(e)}")
         return []
 
     return schedules
