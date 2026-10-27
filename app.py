@@ -1278,7 +1278,7 @@ def fetch_korona_schedule(
             browser = p.chromium.launch(
                 headless=True,  # 運用向け・画面非表示
                 #channel="chrome",
-                args=["--ignore-certificate-errors"],
+                #args=["--ignore-certificate-errors"],
             )
 
             context = browser.new_context(
