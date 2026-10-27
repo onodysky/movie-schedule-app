@@ -160,7 +160,7 @@ def fetch_smt_schedule(
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,
-                channel="chrome",
+                #channel="chrome",
                 args=["--ignore-certificate-errors"],
             )
             context = browser.new_context(
