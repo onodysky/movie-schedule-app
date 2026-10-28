@@ -1278,12 +1278,16 @@ def fetch_korona_schedule(
             browser = p.chromium.launch(
                 headless=True,  # 運用向け・画面非表示
                 #channel="chrome",
-                #args=["--ignore-certificate-errors"],
+                args=[
+                    "--disable-blink-features=AutomationControlled", # 自動化検出の無効化
+                    "--no-sandbox",
+                    "--disable-setuid-sandbox"
+                ],
             )
 
             context = browser.new_context(
-                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-                ignore_https_errors=True,
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+                viewport={"width": 1280, "height": 800}
             )
             page = context.new_page()
 
@@ -1292,7 +1296,8 @@ def fetch_korona_schedule(
             except Exception:
                 pass
 
-            page.wait_for_timeout(1000)
+            # page.wait_for_timeout(1000)
+            page.wait_for_timeout(10000)
 
             # ポップアップ等の消去（存在する場合）
             try:
