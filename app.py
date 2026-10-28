@@ -1296,8 +1296,8 @@ def fetch_korona_schedule(
             except Exception:
                 pass
 
-            # page.wait_for_timeout(1000)
-            page.wait_for_timeout(10000)
+            page.wait_for_timeout(1000)
+            # page.wait_for_timeout(10000)
 
             # ポップアップ等の消去（存在する場合）
             try:
