@@ -113,6 +113,7 @@ ALL_THEATERS = {
     "AEON": {
         "イオンシネマ羽生": "hanyu",
         "イオンシネマ春日部": "kasukabe",
+        "イオンシネマ大宮": "ohmiya",
         #"イオンシネマむさし村山": "musashimurayama",
         #"イオンシネマシアタス調布": "chofu",
         #"イオンシネマ板橋": "itabashi",
